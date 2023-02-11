@@ -61,7 +61,6 @@
                 <artifactId>maven-resources-plugin</artifactId>
                         <configuration>
                             <goal>install</goal>
-                            <addDefaultExcludes>false</addDefaultExcludes>
                         </configuration>
             </plugin>
         </plugins>
