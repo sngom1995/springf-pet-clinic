@@ -9,7 +9,7 @@
     </parent>
     <groupId>sn.springframework</groupId>
     <artifactId>spring-pet-clinic</artifactId>
-    <version>0.0.2-SNAPSHOT</version>
+    <version>0.0.3-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>spring-pet-clinic</name>
     <description>spring-pet-clinic</description>
@@ -60,7 +60,7 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-resources-plugin</artifactId>
                         <configuration>
-                            <goals>install</goals>
+                            <goal>install</goal>
                         </configuration>
             </plugin>
         </plugins>
