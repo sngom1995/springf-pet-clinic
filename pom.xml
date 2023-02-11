@@ -9,7 +9,7 @@
     </parent>
     <groupId>sn.springframework</groupId>
     <artifactId>spring-pet-clinic</artifactId>
-    <version>0.0.2-SNAPSHOT</version>
+    <version>0.0.2</version>
     <packaging>pom</packaging>
     <name>spring-pet-clinic</name>
     <description>spring-pet-clinic</description>
@@ -67,6 +67,6 @@
     </build>
     <scm>
     <developerConnection>scm:git:https://github.com/sngom1995/springf-pet-clinic.git</developerConnection>
-      <tag>HEAD</tag>
+      <tag>spring-pet-clinic-0.0.2</tag>
   </scm>
 </project>
