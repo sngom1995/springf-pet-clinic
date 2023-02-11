@@ -4,7 +4,7 @@
     <parent>
         <groupId>sn.springframework</groupId>
         <artifactId>spring-pet-clinic</artifactId>
-        <version>0.0.3-SNAPSHOT</version>
+        <version>0.0.2-SNAPSHOT</version>
     </parent>
 
     <artifactId>pet-clinic-data</artifactId>
@@ -57,13 +57,6 @@
                        </configuration>
                    </execution>
                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-resources-plugin</artifactId>
-                <configuration>
-                    <goal>install</goal>
-                </configuration>
             </plugin>
         </plugins>
     </build>

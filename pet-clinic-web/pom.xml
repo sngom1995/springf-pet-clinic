@@ -4,7 +4,7 @@
     <parent>
         <groupId>sn.springframework</groupId>
         <artifactId>spring-pet-clinic</artifactId>
-        <version>0.0.3-SNAPSHOT</version>
+        <version>0.0.2-SNAPSHOT</version>
     </parent>
 
     <artifactId>pet-clinic-web</artifactId>
@@ -18,7 +18,7 @@
         <dependency>
             <groupId>sn.springframework</groupId>
             <artifactId>pet-clinic-data</artifactId>
-            <version>0.0.3-SNAPSHOT</version>
+            <version>0.0.2-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -52,13 +52,6 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-resources-plugin</artifactId>
-                <configuration>
-                    <goals>install</goals>
-                </configuration>
             </plugin>
         </plugins>
     </build>
