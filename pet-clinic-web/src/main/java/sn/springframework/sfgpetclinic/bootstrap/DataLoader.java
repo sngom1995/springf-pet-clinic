@@ -1,23 +1,22 @@
 package sn.springframework.sfgpetclinic.bootstrap;
 
-import org.hibernate.annotations.Comment;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 import sn.springframework.sfgpetclinic.model.Owner;
 import sn.springframework.sfgpetclinic.model.Vet;
 import sn.springframework.sfgpetclinic.services.OwnerService;
 import sn.springframework.sfgpetclinic.services.VetService;
-import sn.springframework.sfgpetclinic.services.map.OwnerServiceMap;
-import sn.springframework.sfgpetclinic.services.map.VetServiceMap;
 
 @Component
 public class DataLoader implements CommandLineRunner {
     private final OwnerService ownerService;
     private final VetService vetService;
 
-    public DataLoader() {
-        ownerService = new OwnerServiceMap();
-        vetService = new VetServiceMap();
+    public DataLoader(OwnerService ownerService, VetService vetService) {
+
+        this.ownerService = ownerService;
+        this.vetService = vetService;
     }
 
     @Override
