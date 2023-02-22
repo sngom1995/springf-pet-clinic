@@ -3,7 +3,6 @@ package sn.springframework.sfgpetclinic.services.map;
 import org.springframework.stereotype.Service;
 import sn.springframework.sfgpetclinic.model.Owner;
 import sn.springframework.sfgpetclinic.model.Pet;
-import sn.springframework.sfgpetclinic.services.CrudService;
 import sn.springframework.sfgpetclinic.services.OwnerService;
 
 import java.util.Set;
@@ -48,7 +47,7 @@ public class OwnerServiceMap  extends AbstractMapService<Owner, Long>  implement
                     }
                 });
             }
-            return super.save(object.getId(),object);
+            return super.save(object);
         }else{
             return null;
         }

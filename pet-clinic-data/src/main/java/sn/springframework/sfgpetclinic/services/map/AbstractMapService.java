@@ -1,6 +1,7 @@
 package sn.springframework.sfgpetclinic.services.map;
 
 import sn.springframework.sfgpetclinic.model.BaseEntity;
+import sn.springframework.sfgpetclinic.model.Owner;
 
 import java.util.*;
 
@@ -16,7 +17,7 @@ public abstract class AbstractMapService<T extends BaseEntity, ID extends Long> 
         return map.get(id);
     }
 
-    T save(ID id, T object) {
+    T save(T object) {
 
         if (object != null) {
             if (object.getId() == null) {
@@ -48,4 +49,6 @@ public abstract class AbstractMapService<T extends BaseEntity, ID extends Long> 
         }
         return nextId;
     }
+
+
 }
