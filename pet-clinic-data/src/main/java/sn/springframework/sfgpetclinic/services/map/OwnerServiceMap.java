@@ -2,6 +2,7 @@ package sn.springframework.sfgpetclinic.services.map;
 
 import org.springframework.stereotype.Service;
 import sn.springframework.sfgpetclinic.model.Owner;
+import sn.springframework.sfgpetclinic.model.Pet;
 import sn.springframework.sfgpetclinic.services.CrudService;
 import sn.springframework.sfgpetclinic.services.OwnerService;
 
@@ -9,6 +10,14 @@ import java.util.Set;
 
 @Service
 public class OwnerServiceMap  extends AbstractMapService<Owner, Long>  implements OwnerService {
+
+    private final PetServiceMap petServiceMap;
+    private final PetTypeServiceMap petTypeServiceMap;
+
+    public OwnerServiceMap(PetServiceMap petServiceMap, PetTypeServiceMap petTypeServiceMap) {
+        this.petServiceMap = petServiceMap;
+        this.petTypeServiceMap = petTypeServiceMap;
+    }
 
     @Override
     public Set<Owner> findAll() {
@@ -22,7 +31,27 @@ public class OwnerServiceMap  extends AbstractMapService<Owner, Long>  implement
 
     @Override
     public Owner save(Owner object) {
-        return super.save(object.getId(),object);
+        if(object != null){
+            if(object.getPets() != null){
+                object.getPets().forEach(pet -> {
+                    if(pet.getPetType() != null){
+                        if(pet.getPetType().getId() == null){
+                            pet.setPetType(petTypeServiceMap.save(pet.getPetType()));
+                        }
+                    }else{
+                        throw new RuntimeException("Pet Type is required");
+                    }
+
+                    if(pet.getId() == null){
+                        Pet savedPet = petServiceMap.save(pet);
+                        pet.setId(savedPet.getId());
+                    }
+                });
+            }
+            return super.save(object.getId(),object);
+        }else{
+            return null;
+        }
     }
 
     @Override

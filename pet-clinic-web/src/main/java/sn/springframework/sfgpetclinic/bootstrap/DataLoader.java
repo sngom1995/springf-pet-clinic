@@ -3,11 +3,14 @@ package sn.springframework.sfgpetclinic.bootstrap;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 import sn.springframework.sfgpetclinic.model.Owner;
+import sn.springframework.sfgpetclinic.model.Pet;
 import sn.springframework.sfgpetclinic.model.PetType;
 import sn.springframework.sfgpetclinic.model.Vet;
 import sn.springframework.sfgpetclinic.services.OwnerService;
 import sn.springframework.sfgpetclinic.services.PetTypeService;
 import sn.springframework.sfgpetclinic.services.VetService;
+
+import java.time.LocalDate;
 
 @Component
 public class DataLoader implements CommandLineRunner {
@@ -37,12 +40,32 @@ public class DataLoader implements CommandLineRunner {
 
         owner1.setFirstName("Samba");
         owner1.setLastName("Ngom");
+        owner1.setAddress("Rue 2");
+        owner1.setCity("AIBD");
+        owner1.setTelephone("777775565");
+
+        Pet sambaPet = new Pet();
+        sambaPet.setPetType(savedDogPetType);
+        sambaPet.setOwner(owner1);
+        sambaPet.setBirthDate(LocalDate.now());
+        sambaPet.setName("Rosco");
+        owner1.getPets().add(sambaPet);
 
         ownerService.save(owner1);
 
         Owner owner2 = new Owner();
         owner2.setFirstName("Mamadou");
         owner2.setLastName("Sow");
+        owner2.setAddress("Rue 1");
+        owner2.setCity("Dakar");
+        owner2.setTelephone("777777777");
+
+        Pet mamadouPet = new Pet();
+        mamadouPet.setPetType(savedCatPetType);
+        mamadouPet.setOwner(owner2);
+        mamadouPet.setBirthDate(LocalDate.now());
+        mamadouPet.setName("Risco");
+        owner2.getPets().add(mamadouPet);
 
         ownerService.save(owner2);
 
