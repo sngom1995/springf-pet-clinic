@@ -10,7 +10,6 @@ import java.util.Set;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
 @Entity
 @Table(name = "owners")
 public class Owner extends Person{
@@ -22,4 +21,13 @@ public class Owner extends Person{
     private String telephone;
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "owner")
     private Set<Pet> pets = new HashSet<>();
+
+    @Builder
+    public Owner(String address, String city, String telephone, Set<Pet> pets, String firstName, String lastName, Long id) {
+        super(firstName, lastName, id);
+        this.address = address;
+        this.city = city;
+        this.telephone = telephone;
+        this.pets = pets;
+    }
 }
